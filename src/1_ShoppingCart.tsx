@@ -10,7 +10,7 @@ import {
   Alert,
 } from 'react-native';
 
-const ShoppingChart = () => {
+const ShoppingCart = () => {
   const [data, setData] = useState([
     {
       uri: 'https://cdn.ikea.com.tr/urunler/190_190/PE770241.jpg',
@@ -84,9 +84,6 @@ const ShoppingChart = () => {
   return (
     <FlatList
       style={styles.list}
-      ListHeaderComponent={() => (
-        <Text style={styles.textHeader}>Alışveriş Sepetiniz</Text>
-      )}
       data={data}
       keyExtractor={(item) => item.title}
       ItemSeparatorComponent={() => <View style={styles.seperator} />}
@@ -104,12 +101,17 @@ const ShoppingChart = () => {
               <Text style={styles.description}>{item.description}</Text>
             </View>
             <View style={styles.itemBottomContainer}>
-              <Text style={styles.price}>{(item.price * item.count).toLocaleString('tr')}₺</Text>
+              <Text style={styles.price}>
+                {(item.price * item.count).toLocaleString('tr')}₺
+              </Text>
               <View style={styles.countContainer}>
                 <TouchableOpacity
                   style={styles.binButton}
                   onPress={() => showRemoveItemDialog(item)}>
-                  <Image source={require('./bin.png')} style={styles.bin} />
+                  <Image
+                    source={require('../img/bin.png')}
+                    style={styles.bin}
+                  />
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.countButton}
@@ -133,13 +135,6 @@ const ShoppingChart = () => {
 
 const styles = StyleSheet.create({
   list: {flex: 1},
-  textHeader: {
-    fontSize: 36,
-    marginBottom: 24,
-    marginStart: 12,
-    marginTop: 0,
-    fontWeight: 'bold',
-  },
   image: {
     width: 100,
     height: 100,
@@ -190,4 +185,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ShoppingChart;
+export default ShoppingCart;
