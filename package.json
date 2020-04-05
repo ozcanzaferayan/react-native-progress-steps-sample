@@ -12,7 +12,7 @@
   "dependencies": {
     "react": "16.11.0",
     "react-native": "0.62.1",
-    "react-native-step-indicator": "^0.0.11"
+    "react-native-progress-steps": "^1.2.9"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
